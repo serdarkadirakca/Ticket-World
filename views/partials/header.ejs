@@ -1,0 +1,112 @@
+<div class="header-top">
+    <div class="container">
+        <div class="header-left">
+            <p>Purchasing ticket convenience at home..</p>
+        </div><!-- End .header-left -->
+
+        <div class="header-right">
+
+            <% if (isAuth) { %>
+                <ul class="top-menu">
+                    
+                    <li><a href="">Logout</a></li>
+                        <ul>
+                            <li style="font-size: small;"><%= name %> <%= surname %></li>
+                            <li><a href="/logout">Logout</a></li>
+                        </ul>
+                </ul><!-- End .top-menu -->
+            </div><!-- End .header-right -->
+            <% } else { %>
+                <ul class="top-menu">
+                <li><a href="">Register/Login</a></li>
+                    <ul>
+                        <li><a href="/register" name="register">Register</a></li>
+                        <li><a href="/login" name="login">Login</a></li>
+                    </ul>
+            </ul><!-- End .top-menu -->
+        </div><!-- End .header-right -->
+            <% }%>
+                 
+             
+
+    </div><!-- End .container -->
+</div><!-- End .header-top -->
+<div class="header-middle">
+    <div class="container">
+        <div class="header-left">
+            <button class="mobile-menu-toggler">
+                <span class="sr-only">Toggle mobile menu</span>
+                <i class="icon-bars"></i>
+            </button>
+            <a href="/" class="logo">
+                <img src="/static/images/logo.png" alt="Logo" width="150" height="25">
+            </a>
+        </div>
+
+        <div class="header-right">
+            <div class="account">
+                <a href="/account" title="My account">
+                    <div class="icon">
+                        <i class="icon-user" name="account"></i>
+                    </div>
+                    <p>Account</p>
+                </a>
+            </div>
+            <% if (isAuth) { %>
+                <div class="dropdown cart-dropdown">
+                    <a href="/cart" name="cart" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false" data-display="static">
+                        <div class="icon">
+                            <i class="icon-shopping-cart" name="cart"></i>
+                            <span class="cart-count"><%= countCart %></span>
+                        </div>
+                        <p>Cart</p>
+                    </a>
+            <% } else { %>
+                <div class="dropdown cart-dropdown">
+                    <a href="/cart" name="cart" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false" data-display="static">
+                        <div class="icon">
+                            <i class="icon-shopping-cart" name="cart"></i>
+                        </div>
+                        <p>Cart</p>
+                    </a>
+            <% }%>
+
+            
+                
+            </div>
+        </div><!-- End .header-right -->
+    </div><!-- End .container -->
+</div><!-- End .header-middle -->
+
+<div class="header-bottom sticky-header">
+    <div class="container">
+        <div class="header-left">
+        </div>
+        <div class="header-center">
+            <nav class="main-nav">
+                <ul class="menu sf-arrows">
+                    <li>
+                        <a href="/" class="sf" id="home">Home</a>  
+                    </li>
+                    <li>
+                        <a href="/concert" class="sf">Concert</a>
+                    </li>
+                    <li>
+                        <a href="/cinema" class="sf">Cinema</a>
+                    </li>
+                    <li>
+                        <a href="/theatre" class="sf">Theatre</a>  
+                    </li>
+                    <li>
+                        <a href="/musical" class="sf">Musical</a>
+                    </li>
+                    <li>
+                        <a href="/other" class="sf">Other Performing Arts</a>  
+                    </li>
+                </ul><!-- End .menu -->
+            </nav><!-- End .main-nav -->
+        </div>
+        <div class="header-right">
+        </div>
+    </div><!-- End .container -->
+</div><!-- End .header-bottom -->

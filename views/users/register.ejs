@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("../partials/head") %>
+</head>
+<body>
+    <div class="page-wrapper">
+                <main class="main">
+                    <div class="lpt-8 pb-8 pt-md-12 pb-md-12 pt-lg-17 pb-lg-17">
+                            <div class="form-box" style="background-color:white;">
+                                <div class="form-tab">
+                                    <div class="tab-content">
+                                        <h4 style="text-align: center;"><span>Register</span></h4>
+                                        <% if (typeof message != "undefined") { %>
+                                            <div style="border-radius: 10px; text-align: center;" 
+                                            class="alert alert-<%= message.class %>">
+                                                <%= message.text %> 
+                                            </div>
+                                        <% } %>
+                                        <form method="post">
+                                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                            <div class="form-group"> 
+                                                <label for="name">Name</label>
+                                                <input type="name" class="form-control" id="name" name="name" required>
+                                            </div><!-- End .form-group -->
+                                            <div class="form-group">
+                                                <label for="surname">Surname</label>
+                                                <input type="surname" class="form-control" id="surname" name="surname" required>
+                                            </div><!-- End .form-group -->
+                                            <div class="form-group">
+                                                <label for="address">Address</label>
+                                                <input type="address" class="form-control" id="address" name="address" required>
+                                            </div><!-- End .form-group -->
+                                            <div class="form-group">
+                                                <label for="city">City</label>
+                                                <input type="city" class="form-control" id="city" name="city" required>
+                                            </div><!-- End .form-group -->
+                                            <div class="form-group">
+                                                <label for="country">Country</label>
+                                                <input type="country" class="form-control" id="country" name="country" required>
+                                            </div><!-- End .form-group -->
+                                            <div class="form-group">
+                                                <label for="postcode">Postcode</label>
+                                                <input type="postcode" class="form-control" id="postcode" name="postcode" required>
+                                            </div><!-- End .form-group -->
+                                            <div class="form-group">
+                                                <label for="phone">Phone</label>
+                                                <input type="phone" class="form-control" id="phone" name="phone" required>
+                                            </div><!-- End .form-group -->
+                                            <div class="form-group">
+                                                <label for="email">Email</label>
+                                                <input type="email" class="form-control" id="email" name="email" required>
+                                            </div><!-- End .form-group -->
+                                            <div class="form-group">
+                                                <label for="password">Password</label>
+                                                <input type="password" class="form-control" id="password" name="password" required>
+                                            </div><!-- End .form-group -->
+                                            <div class="form-footer">
+                                                <button type="submit" name="signup" class="btn btn-outline-primary-2">
+                                                    <span>SIGN UP</span>
+                                                    <i class="icon-long-arrow-right"></i>
+                                                </button>
+                                            </div><!-- End .form-footer -->
+                                        </form>
+                                    </div><!-- .End .tab-pane -->
+                                    <div class="row justify-content-center">
+                                        <a href="/"><button class="btn btn-circle" style="text-align: center;">RETURN HOME</button></a>
+                                        </div>
+                                </div><!-- End .form-tab -->
+                            </div><!-- End .form-box -->
+                    </div><!-- End .login-page section-bg -->  
+                </main><!-- End .main -->
+    </div><!-- End .page-wrapper -->
+            
+        
+    <%- include("../partials/script") %>
+
+</body>
+</html>

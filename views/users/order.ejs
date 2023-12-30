@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("../partials/head") %>
+</head>
+<body>
+    <div class="page-wrapper">
+                <main class="main">
+                    <div class="lpt-8 pb-8 pt-md-12 pb-md-12 pt-lg-17 pb-lg-17">
+                            <div class="form-box" style="background-color:white;">
+                                <div class="form-tab">
+                                    <div class="tab-content">
+                                            <div style="border-radius: 10px; text-align: center; margin-bottom: 2rem;">
+                                                
+                                                <h4>Order Details</h4>
+                                                <div class="row justify-content-center">
+                                                <div style="border-radius: 10px; text-align: center; margin-bottom: 2rem;" class="alert alert-primary">
+                                                    Your order will be sent via email within two hours. 
+                                                </div>
+                                            </div>
+                                            
+                                                    <table class="table table-summary">
+                                                        <thead>
+                                                            <th><u>Tickets</u></th>
+                                                            <th><u>Quantity</u></th>
+                                                            <th><u>Subtotal</u></th>
+                                                        </thead>
+                                                        <tbody>
+                                                            <% for( let i = 0; i < productUsers.length; i++ ) { %>
+                                                                <tr class="summary-subtotal">
+                                                                    
+                                                                    <td><%= userProducts[i].title %></td>
+                                                                    <td><%= productUsers[i].quantity %></td>
+                                                                    <td><%= totalPrice %> TL</td>
+                                                                    
+                                                                </tr><!-- End .summary-subtotal -->
+                                                                <% } %>
+                                                        </tbody>
+                                                    </table><!-- End .table table-summary -->
+                                                    <div class="row justify-content-center" style="margin-top: 2rem;">
+                                                    <a href="/"><button class="btn btn-circle" style="text-align: center;">RETURN HOME</button></a>
+                                                    
+                                                </div>
+                                                
+                                            </div>       
+                                    </div><!-- .End .tab-pane -->
+                                    
+                                </div><!-- End .form-tab -->
+                            </div><!-- End .form-box -->
+                    </div><!-- End .login-page section-bg -->  
+                </main><!-- End .main -->
+    </div><!-- End .page-wrapper -->
+            
+        
+    <%- include("../partials/script") %>
+
+</body>
+</html>

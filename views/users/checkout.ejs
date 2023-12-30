@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <%- include("../partials/head") %>
+
+</head>
+<body>
+    <div class="page-wrapper">
+        <header class="header header-2 header-intro-clearance">
+
+            <%- include("../partials/header") %>
+
+        </header><!-- End .header -->
+
+        <main class="main">
+            
+            <div class="page-header text-center" style="background-image: url('static/images/page-header-bg.jpg')">
+                <div class="container">
+                    <h1 class="page-title">Checkout</h1>
+                </div><!-- End .container -->
+            </div><!-- End .page-header -->
+            
+            <div class="page-content">
+                <div class="checkout">
+                    <div class="container">
+                        <form method="post">
+                            <div class="row">
+                                <div class="col-lg-9">
+                                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h2 class="checkout-title">Account Details</h2><!-- End .checkout-title -->
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Name</label>
+                                                <input type="text" name="name"  class="form-control" placeholder="<%= name %>">
+                                            </div><!-- End .col-sm-6 -->
+            
+                                            <div class="col-sm-6">
+                                                <label>Surname</label>
+                                                <input type="text" name="surname" class="form-control" placeholder="<%= surname %>">
+                                            </div><!-- End .col-sm-6 -->
+                                        
+                                    </div><!-- End .row -->
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <label>Address</label>
+                                                <input type="text" name="address" class="form-control"  placeholder="<%= address %>">
+                                                </div>
+                                                <div class="row">
+                                            </div><!-- End .col-sm-6 -->
+                                            <div class="col-sm-6">
+                                                <label>City</label>
+                                                <input type="text" name="city" class="form-control" placeholder="<%= city %>">
+                                                
+                                            </div><!-- End .col-sm-6 -->
+                                            <div class="col-sm-6">
+                                                <label>Country</label>
+                                                <input type="text" name="country" class="form-control" placeholder="<%= country %>">
+                                            </div><!-- End .col-sm-6 -->
+                                        </div><!-- End .row -->
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label>Postcode</label>
+                                                <input type="text" name="postcode" class="form-control" placeholder="<%= postcode %>">
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <label>Phone</label>
+                                                    <input type="tel" name="phone" class="form-control" placeholder="<%= phone %>">
+                                                </div>
+                                        </div><!-- End .row -->
+                                        <div class="row">
+                                    </div>
+                                    <h6 class="checkout-title">Billing Details</h6>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <label>Fullname on the Card</label>
+                                            <input type="text" name="fullname" class="form-control" required>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <label>Credit Card No.</label>
+                                            <input type="text" name="card" class="form-control" placeholder="XXXX XXXX XXXX XXXX" required>
+                                        </div>
+                                    
+                                        <div class="col-sm-3">
+                                            <label>Security No.(CVV)</label>
+                                        <input type="text" name="cvv" class="form-control" placeholder="XXX" required>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <label>Expiration Date</label>
+                                            <input type="text" name="date" class="form-control" placeholder="MM/YY" required>
+                                    </div>
+                                </div>
+                                </div><!-- End .col-lg-9 -->
+                            </div><!-- End .row -->
+                                </div><!-- End .col-lg-9 -->
+                                <aside class="col-lg-3">
+                                    <div class="summary">
+                                        <h3 class="summary-title">Your Order</h3><!-- End .summary-title -->
+            
+                                        <table class="table table-summary">
+                                            
+            
+                                            <tbody>
+                                                <% for( let i = 0; i < userProducts.length; i++ ) { %>
+                                                    <tr class="summary-subtotal">
+                                                        
+                                                        <td><%= userProducts[i].title %></td>
+                                                        <td><%= totalPrice[i] %> TL</td>
+                                                        
+                                                    </tr><!-- End .summary-subtotal -->
+                                                    <% } %>
+                                                <tr class="summary-subtotal">
+                                                    <td>Subtotal:</td>
+                                                    <td><%= cartTotal %> TL</td>
+                                                </tr><!-- End .summary-subtotal -->
+                                                
+                                                <tr>
+                                                    <td>KDV</td>
+                                                    <td>%8</td>
+                                                </tr>
+                                                <td>Handling Fee</td>
+                                                    <% if (cartTotal>500) { %>
+                                                        <td>Free</td>
+                                                    <% } else{%>
+                                                        <td>50 TL</td>
+                                                        <% } %>
+                                                </tr>
+                                                <tr class="summary-total">
+                                                    <td>Total:</td>
+                                                    <td><%= totalFinal %> TL</td>
+                                                </tr>
+                                                <tr>
+                                                    <!-- End .summary-total -->
+                                            </tbody>
+                                        </table><!-- End .table table-summary -->
+                                        <button type="submit" id="checkout" class="btn btn-outline-primary-2 btn-order btn-block">Proceed to Checkout</button>
+                                    </div><!-- End .summary -->
+                                </aside><!-- End .col-lg-3 -->
+                            </div><!-- End .row -->
+                        </form>
+                    </div><!-- End .container -->
+                </div><!-- End .checkout -->
+            </div><!-- End .page-content -->
+            </main><!-- End .main -->
+        <footer class="footer footer-2">
+            <%- include('../partials/footer') %>
+        </footer><!-- End .footer -->
+            <!-- Mobile Menu -->
+    </div><!-- End .page-wrapper -->
+    <button id="scroll-top" title="Back to Top"><i class="icon-arrow-up"></i></button>
+
+    <%- include("../partials/mobile-menu") %>
+    <%- include('../partials/script') %>
+
+</body>
+</html>

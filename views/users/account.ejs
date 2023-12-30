@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("../partials/head") %>
+</head>
+<body>
+    <div class="page-wrapper">
+        <header class="header header-2 header-intro-clearance">
+
+            <%- include("../partials/header") %>
+
+        </header><!-- End .header -->
+        <main class="main">
+            <div class="page-header text-center" style="background-image: url('static/images/page-header-bg.jpg')">
+                <div class="container">
+                    <h1 class="page-title">My Account</h1>
+                </div><!-- End .container -->
+            </div>
+            <div class="page-content">
+                <div class="checkout">
+                    <div class="container">
+                        <form method="post">
+                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h2 class="checkout-title">Change Account Informations</h2><!-- End .checkout-title -->
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Name</label>
+                                                <input type="text" name="name" name="name" class="form-control" placeholder="<%= name %>">
+                                            </div><!-- End .col-sm-6 -->
+            
+                                            <div class="col-sm-6">
+                                                <label>Surname</label>
+                                                <input type="text" name="surname" name="surname" class="form-control" placeholder="<%= surname %>">
+                                            </div><!-- End .col-sm-6 -->
+                                        
+                                    </div><!-- End .row -->
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <label>Address</label>
+                                                <input type="text" name="address" name="address" class="form-control"  placeholder="<%= address %>">
+                                                
+                                            </div><!-- End .col-sm-6 -->
+                                            <div class="col-sm-6">
+                                                <label>City</label>
+                                                <input type="text" name="city" name="city" class="form-control" placeholder="<%= city %>">
+                                                
+                                            </div><!-- End .col-sm-6 -->
+                                            <div class="col-sm-6">
+                                                <label>Country</label>
+                                                <input type="text" name="country" name="country" class="form-control" placeholder="<%= country %>">
+                                            </div><!-- End .col-sm-6 -->
+                                        </div><!-- End .row -->
+                                        <div class="row">
+                                            
+                                            <div class="col-sm-6">
+                                                <label>Postcode</label>
+                                                <input type="text" name="postcode" name="postcode" class="form-control" placeholder="<%= postcode %>">
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <label>Phone</label>
+                                                    <input type="tel" name="phone" name="phone" class="form-control" placeholder="<%= phone %>">
+                                                </div>
+                                        </div><!-- End .row -->
+                                        
+                                </div><!-- End .col-lg-9 -->
+                            </div><!-- End .row -->
+                            <div class="row ">
+                            <div class="col-md-2">
+                                <button type="submit" name="update" class="btn btn-primary">Update Informations</button>
+                            </div>
+                        </div> 
+                        </form>
+                    </div><!-- End .container -->
+                </div><!-- End .checkout -->
+            </div>
+        </main>
+        <footer class="footer footer-2">
+            <%- include('../partials/footer') %>
+        </footer><!-- End .footer -->
+            <!-- Mobile Menu -->
+    </div><!-- End .page-wrapper -->
+    <button id="scroll-top" title="Back to Top"><i class="icon-arrow-up"></i></button>
+    <%- include("../partials/mobile-menu") %>
+    <%- include('../partials/script') %>
+</body>
+</html>

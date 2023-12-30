@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("../partials/head") %>
+</head>
+<body>
+    <div class="page-wrapper">
+                <main class="main">
+                    <div class="lpt-8 pb-8 pt-md-12 pb-md-12 pt-lg-17 pb-lg-17">
+                            <div class="form-box" style="background-color:white;">
+                                <div class="form-tab">
+                                    <div class="tab-content">
+                                        <h4 style="text-align: center;"><span>Reset Password</span></h4>
+
+                                        <% if (typeof message != "undefined") { %>
+                                            <div style="border-radius: 10px; text-align: center;" 
+                                            class="alert alert-<%= message.class %>">
+                                                <%= message.text %> 
+                                            </div>
+                                        <% } %>
+                                        
+                                            <form method="post">
+                                                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                                <div class="form-group">
+                                                    <label for="email">Email</label>
+                                                    <input type="email" class="form-control" id="email" name="email" required>
+                                                </div><!-- End .form-group -->
+                                                
+                                                    <button type="submit" name="reset" class="btn btn-outline-primary-2">
+                                                        <span>RESET PASSWORD</span>
+                                                        <i class="icon-long-arrow-right"></i>
+                                                    </button>
+                                            </form>
+                                    </div><!-- .End .tab-pane -->
+                                </div><!-- End .form-tab -->
+                            </div><!-- End .form-box -->
+                    </div><!-- End .login-page section-bg -->  
+                </main><!-- End .main -->
+    </div><!-- End .page-wrapper -->
+            
+        
+    <%- include("../partials/script") %>
+
+</body>
+</html>

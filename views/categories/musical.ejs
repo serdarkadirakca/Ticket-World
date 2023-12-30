@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <%- include("../partials/head") %>
+
+</head>
+<body>
+    <div class="page-wrapper">
+        <header class="header header-2 header-intro-clearance">
+            
+            <%- include("../partials/header",name,surname) %>
+
+        </header><!-- End .header -->
+
+        <main class="main">
+            
+            <div class="mb-4"></div><!-- End .mb-6 -->
+            <h2 class="nav-link" style="color:#1f1e18; text-align: center;"><sup>Musical Show Tickets</sup></h2>
+            <%- include('../partials/categories') %>
+                    <footer class="footer footer-2">
+                        <%- include('../partials/footer') %>
+                    </footer><!-- End .footer -->
+                    <!-- Mobile Menu -->
+                    
+                    
+                </div><!-- End .page-wrapper -->
+                <button id="scroll-top" title="Back to Top"><i class="icon-arrow-up"></i></button>
+                
+                <%- include("../partials/mobile-menu") %>
+                <%- include('../partials/modal') %>
+    <%- include('../partials/script') %>
+
+</body>
+</html>

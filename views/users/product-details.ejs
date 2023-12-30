@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <%- include("../partials/head") %>
+
+</head>
+<body>
+    <div class="page-wrapper">
+        <header class="header header-2 header-intro-clearance">
+            <%- include("../partials/header",name,surname) %>
+        </header><!-- End .header -->
+
+        <main class="main">
+            <div class="page-content">
+                <div class="container">
+                    <div class="product-details-top">
+                        <div class="row">
+                            
+                            <div class="col-md-6">
+                                <br>
+                                        <figure class="product-main-image">
+                                            <img id="product" src="static/images/products/<%= product.image %>" alt="product image">
+                                        </figure><!-- End .product-main-image -->
+                            </div><!-- End .col-md-6 -->
+                            <div class="col-md-6">
+                                <br>
+                                <div class="product-details">
+                                    <h1 class="product-title"><%= product.title %></h1><!-- End .product-title -->
+
+                                    
+
+                                    <!-- End .product-price -->
+
+                                    <div class="product-content">
+                                        <p><%= product.description %></p>
+                                    </div>
+                                    
+    
+                                </div>
+                                <div class="details-filter-row details-row-size">
+                                    <div class="product-details-quantity"><form method="post">
+                                        <p><strong>Time:</strong> <%= product.time %></p><br>
+                                            <p><strong>Place:</strong> <%= product.place %></p><br>
+                                            <p><strong>Price:</strong> <%= product.price %> TL</p><br>
+                                        <label for="quantity">Quantity</label>
+                                        <input type="number" id="quantity" name="quantity" class="form-control" value="1" min="1" max="10" step="1" data-decimals="0" required>
+                                    </div>
+                                </div>
+                                <div class="details-filter-row details-row-size">
+                                <div class="product-details-action">
+                                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                        <button class="btn btn-product btn-cart" name="add-cart">ADD TO CART</button>
+                                <div class="details-action-wrapper" style="border: 1rem;">
+                                    </form>
+                                </div>
+                            </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-details-tab">
+                    </div>
+                </div><!-- End .container -->
+            </div>
+            </main><!-- End .main -->
+
+        <footer class="footer footer-2">
+            <%- include('../partials/footer') %>
+        </footer><!-- End .footer -->
+            <!-- Mobile Menu -->
+
+    
+    </div><!-- End .page-wrapper -->
+    <button id="scroll-top" title="Back to Top"><i class="icon-arrow-up"></i></button>
+
+    <%- include("../partials/mobile-menu") %>
+    <%- include('../partials/script') %>
+</body>
+</html>

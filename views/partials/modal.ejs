@@ -1,0 +1,40 @@
+<% for( let i = 0; i < products.length; i++ ) { %>
+        <div class="modal fade" id="preview-modal-<%= products[i].id %>" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                            <button class="icon-close" data-dismiss="modal"
+                                style="margin-left: 94%; margin-top: 0.6rem; border: 0; background-color: white;"></button>
+                        </button>
+                        <div class="product-details-top">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <br>
+                                            <figure class="product-main-image">
+                                                <img id="product" src="static/images/products/<%= products[i].image %>" alt="product image">
+                                            </figure><!-- End .product-main-image -->
+                                            
+        
+                                </div><!-- End .col-md-6 -->
+                                <div class="col-md-6">
+                                    <br>
+                                    <div class="product-details">
+                                        <h1 class="product-title"><%= products[i].title %></h1><!-- End .product-title -->
+                                        <!-- End .product-price -->
+                                        <div class="product-content">
+                                            <p><%= products[i].description %></p><br>
+                                            <p><strong>Time:</strong> <%= products[i].time %></p><br>
+                                            <p><strong>Place:</strong> <%= products[i].place %></p><br>
+                                            <p><strong>Price:</strong> <%= products[i].price %> TL</p>
+
+                                        </div>
+                                        <a href="/<%= products[i].url %>"><button class="btn btn-primary">SEE MORE</button></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- End .modal-body -->
+            </div><!-- End .modal-content -->
+        </div>
+    <% } %>

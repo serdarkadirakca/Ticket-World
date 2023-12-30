@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("../partials/head") %>
+</head>
+<body>
+    <div class="page-wrapper">
+                <main class="main">
+                    <div class="lpt-8 pb-8 pt-md-12 pb-md-12 pt-lg-17 pb-lg-17">
+                            <div class="form-box" style="background-color:white;">
+                                <div class="form-tab">
+                                    <div class="tab-content">
+                                        <h4 style="text-align: center;"><span>Login</span></h4>
+
+                                        <% if (typeof message != "undefined") { %>
+                                            <div style="border-radius: 10px; text-align: center;" 
+                                            class="alert alert-<%= message.class %>">
+                                                <%= message.text %> 
+                                            </div>
+                                        <% } %>
+                                        
+                                            <form method="post">
+                                                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                                <div class="form-group">
+                                                    <label for="email">Email</label>
+                                                    <input type="email" class="form-control" id="email" name="email" required>
+                                                </div><!-- End .form-group -->
+                    
+                                                <div class="form-group">
+                                                    <label for="password">Password</label>
+                                                    <input type="password" class="form-control" id="password" name="password" required>
+                                                </div><!-- End .form-group -->
+                    
+                                                <div class="form-footer">
+                                                    <button type="submit" name="button-login" class="btn btn-outline-primary-2">
+                                                        <span>LOG IN</span>
+                                                        <i class="icon-long-arrow-right"></i>
+                                                    </button>
+                                                    <a href="/reset" class="forgot-link">Forgot Your Password?</a>
+                                                </div><!-- End .form-footer -->
+                                            </form>
+                                    </div><!-- .End .tab-pane -->
+                                    <div class="row justify-content-center">
+                                    <a href="/"><button class="btn btn-circle" style="text-align: center;">RETURN HOME</button></a>
+                                    </div>
+                                </div><!-- End .form-tab -->
+                            </div><!-- End .form-box -->
+                    </div><!-- End .login-page section-bg -->  
+                </main><!-- End .main -->
+    </div><!-- End .page-wrapper -->
+            
+        
+    <%- include("../partials/script") %>
+
+</body>
+</html>

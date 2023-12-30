@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <%- include("../partials/head") %>
+
+</head>
+<body>
+    <div class="page-wrapper">
+        <header class="header header-2 header-intro-clearance">
+
+            <%- include("../partials/header") %>
+
+        </header><!-- End .header -->
+        <main class="main">
+            <div class="page-header text-center" style="background-image: url('static/images/page-header-bg.jpg')">
+                <div class="container">
+                    <h1 class="page-title">Wishlist</h1>
+                </div><!-- End .container -->
+            </div>
+            <div class="page-content">
+                <div class="container">
+                    <table class="table table-wishlist table-mobile">
+                        <thead>
+                            <tr>
+                                <th>Tickets</th>
+                                <th>Price</th>
+                                <th>Stock Status</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% for( let i = 0; i < userProducts.length; i++ ) { %>
+                                <tr>
+                                    <td class="product-col">
+                                        <div class="product">
+                                            <figure class="product-media">
+                                                <a href="/<%= userProducts[i].url %>">
+                                                    <img src="static/images/<%= userProducts[i].image %>" alt="Product image">
+                                                </a>
+                                            </figure>
+                
+                                            <h3 class="product-title">
+                                                <a href="/<%= userProducts[i].url %>"><%= userProducts[i].title %></a>
+                                            </h3><!-- End .product-title -->
+                                        </div><!-- End .product -->
+                                    </td>
+                                    <td class="price-col"><%= userProducts[i].price %>TL</td>
+                                    <td class="stock-col"><%= userProducts[i].status %></td>
+                                    <td class="action-col">
+                                        <button class="btn btn-block btn-outline-primary-2"><i class="icon-cart-plus"></i>Add to Cart</button>
+                                    </td>
+                                    <td class="remove-col"><button class="btn-remove"><i class="icon-close"></i></button></td>
+                                </tr>
+                            <% } %>
+                        </tbody>
+                    </table><!-- End .table table-wishlist -->
+                </div><!-- End .container -->
+            </div>
+            </main><!-- End .main -->
+        <footer class="footer footer-2">
+            <%- include('../partials/footer') %>
+        </footer><!-- End .footer -->
+            <!-- Mobile Menu -->
+    </div><!-- End .page-wrapper -->
+    <button id="scroll-top" title="Back to Top"><i class="icon-arrow-up"></i></button>
+    <%- include("../partials/mobile-menu") %>
+    <%- include('../partials/script') %>
+</body>
+</html>
