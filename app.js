@@ -17,6 +17,7 @@ const userRoutes = require("./routes/user");
 const sequelize = require("./data/db");
 const dummyData = require("./data/dummy-data");
 const locals = require("./middlewares/locals");
+const validate = require("./data/validate");
 
 // template engine
 app.set("view engine", "ejs");

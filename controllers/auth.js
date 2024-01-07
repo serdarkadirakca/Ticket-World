@@ -4,6 +4,7 @@ const emailService = require("../helpers/send-mail");
 const config = require("../config");
 const ctypto = require("crypto");
 const { Op } = require("sequelize");
+const schema = require("../data/validate");
 
 exports.get_register = async function(req, res) {
     try {
@@ -34,6 +35,13 @@ exports.post_register = async function(req, res) {
             res.render("users/register", {
                 title: "Login",
                 message: { text: "Invalid Email", class: "warning"},
+                csrfToken: req.csrfToken()
+            });
+        }
+        else if(!schema.validate(password)){
+            res.render("users/register", {
+                title: "Register",
+                message: { text: "Password must be between 4-10 characters", class: "warning"},
                 csrfToken: req.csrfToken()
             });
         }
